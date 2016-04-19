@@ -48,7 +48,7 @@ public class FibonacciServlet extends HttpServlet{
 		String paramValue = request.getParameter("n");
 		Integer n = 0;
 		if (paramValue != null && !paramValue.isEmpty())
-			n = Integer.valueOf(paramValue);
+			try { n = Integer.valueOf(paramValue); } catch (NumberFormatException e) {};
 		long start = new Date().getTime();
 		response.getWriter().append("Nth Fibonacci value = " + _getFibo(n));
 		long end = new Date().getTime();
